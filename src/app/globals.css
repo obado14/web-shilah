@@ -128,3 +128,43 @@
     @apply font-sans;
   }
 }
+
+/* Proxima Nova Fonts */
+@font-face {
+  font-family: 'proxima nova bold';
+  src: url('/fonts/proximanova-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'proxima nova semibold';
+  src: url('/fonts/proximanova-semibold-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'proxima nova light';
+  src: url('/fonts/proximanova-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+::-webkit-selection {
+  background: #111111;
+  color: #ffffff;
+}

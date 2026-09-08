@@ -1,9 +1,17 @@
+import { Header } from '@/components/sites/adhamdannaway-com/root/Header';
+import { HeroFace } from '@/components/sites/adhamdannaway-com/root/HeroFace';
+import { PortfolioThumbs } from '@/components/sites/adhamdannaway-com/root/PortfolioThumbs';
+import { Footer } from '@/components/sites/adhamdannaway-com/root/Footer';
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <div className="relative min-h-screen w-full bg-white text-[#333333]">
+      <Header />
+      <main id="content" className="w-full">
+        <HeroFace />
+        <PortfolioThumbs />
+      </main>
+      <Footer />
+    </div>
   );
 }
