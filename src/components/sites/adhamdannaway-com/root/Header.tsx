@@ -18,7 +18,7 @@ export function Header() {
   return (
     <header
       id="header"
-      className={`absolute left-0 right-0 top-0 z-[1000] w-full bg-[#111111] transition-all duration-1000 ease-out ${
+      className={`absolute left-0 right-0 top-0 z-[1000] w-full bg-[#111111]/85 backdrop-blur-md border-b border-white/10 transition-all duration-1000 ease-out ${
         isMounted ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
