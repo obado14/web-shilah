@@ -2,6 +2,8 @@ import { Header } from '@/components/sites/adhamdannaway-com/root/Header';
 import { HeroFace } from '@/components/sites/adhamdannaway-com/root/HeroFace';
 import { AboutSection } from '@/components/sites/adhamdannaway-com/root/AboutSection';
 import { PortfolioThumbs } from '@/components/sites/adhamdannaway-com/root/PortfolioThumbs';
+import { BlogSection } from '@/components/sites/adhamdannaway-com/root/BlogSection';
+import { ContactSection } from '@/components/sites/adhamdannaway-com/root/ContactSection';
 import { Footer } from '@/components/sites/adhamdannaway-com/root/Footer';
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
         <HeroFace />
         <AboutSection />
         <PortfolioThumbs />
+        <BlogSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

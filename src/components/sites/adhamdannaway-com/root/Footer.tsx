@@ -76,14 +76,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/learn-ui-design"
-                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
-                >
-                  learn
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/portfolio"
                   className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
                 >

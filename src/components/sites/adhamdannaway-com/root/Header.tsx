@@ -84,14 +84,6 @@ export function Header() {
               </li>
               <li>
                 <Link
-                  href="/learn-ui-design"
-                  className="block px-4 text-[18px] leading-[92px] text-white transition-colors duration-300 hover:text-[#757575]"
-                >
-                  learn
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/portfolio"
                   className="block px-4 text-[18px] leading-[92px] text-white transition-colors duration-300 hover:text-[#757575]"
                 >
@@ -168,10 +160,10 @@ export function Header() {
                   </li>
                   <li>
                     <a
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/shilah_al_jakarti2"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Instagram"
+                      title="Instagram @shilah_al_jakarti2"
                       className="block h-[32px] w-[32px] text-[0px] opacity-100 transition-opacity duration-300 hover:opacity-50"
                       style={{
                         backgroundImage: 'url(/images/sprite.png)',
@@ -196,11 +188,6 @@ export function Header() {
             <li className="border-b border-[#363636] border-t border-[#212121] leading-[64px]">
               <Link href="/about" className="block text-white lowercase">
                 about
-              </Link>
-            </li>
-            <li className="border-b border-[#363636] border-t border-[#212121] leading-[64px]">
-              <Link href="/learn-ui-design" className="block text-white lowercase">
-                learn
               </Link>
             </li>
             <li className="border-b border-[#363636] border-t border-[#212121] leading-[64px]">
@@ -270,10 +257,10 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/shilah_al_jakarti2"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Instagram"
+                    title="Instagram @shilah_al_jakarti2"
                     className="inline-block h-[32px] w-[32px] text-[0px]"
                     style={{
                       backgroundImage: 'url(/images/sprite.png)',
