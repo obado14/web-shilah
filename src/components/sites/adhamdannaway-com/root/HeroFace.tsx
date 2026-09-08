@@ -10,104 +10,99 @@ export function HeroFace() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 100);
+    }, 50);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden bg-[#0d0d0d] pt-[62px] min-[830px]:pt-[92px]"
+      className="relative w-full bg-white pt-[62px] min-[830px]:pt-[92px]"
       style={{
         borderBottom: '#dddddd solid 1px',
       }}
     >
-      {/* Full Width Hero Image Stage */}
-      <div className="relative h-[62vh] min-h-[460px] max-h-[820px] w-full min-[1024px]:h-[78vh] min-[1440px]:h-[84vh]">
-        {/* Shilah's Full Width Photo */}
-        <Image
-          id="hero-img"
-          src="/images/shilah-hero.png"
-          alt="Shilah Al Jakarti"
-          fill
-          priority
-          sizes="100vw"
-          className={`object-cover object-[center_30%] transition-opacity duration-1000 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
+      {/* 1. Full-Width Edge-to-Edge Hero Photo (100% Unobstructed & Clear) */}
+      <div className="relative w-full overflow-hidden bg-[#0d0d0d]">
+        <div className="relative mx-auto w-full aspect-[16/9] max-h-[75vh] min-h-[280px]">
+          <Image
+            id="hero-img"
+            src="/images/shilah-hero.png"
+            alt="Shilah Al Jakarti"
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover object-[center_25%] transition-opacity duration-700 ${
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        </div>
+      </div>
 
-        {/* Ambient Dark Gradients for Crisp Legibility & Seamless Integration */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/35 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/60 via-transparent to-[#0a0a0a]/40" />
+      {/* 2. Hero Information & Navigation (Below Photo, Zero Overlap on Face) */}
+      <div className="mx-auto max-w-[1040px] px-6 py-10 min-[830px]:py-14 text-center">
+        {/* Badges */}
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#e0e0e0] bg-[#f5f5f5] px-3.5 py-1 text-[12px] font-semibold text-[#444444] min-[830px]:text-[13px]">
+            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            High School Student & Gamer (Super Sus)
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-3.5 py-1 text-[12px] font-semibold text-sky-700 min-[830px]:text-[13px]">
+            <span>⚡</span> Learning Web Dev with AI
+          </span>
+        </div>
 
-        {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end pb-8 min-[830px]:pb-14">
-          <div className="mx-auto w-full max-w-[1040px] px-6 min-[1140px]:px-0">
-            {/* Tag / Badge */}
-            <div className="mb-3 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3.5 py-1 text-[12px] font-medium text-white shadow-lg backdrop-blur-md min-[830px]:text-[13px]">
-                <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                High School Student & Gamer
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3.5 py-1 text-[12px] font-medium text-[#7dd3fc] shadow-lg backdrop-blur-md min-[830px]:text-[13px]">
-                <span>⚡</span> Learning Web Dev with AI
-              </span>
-            </div>
+        {/* Main Title */}
+        <h1
+          className="m-0 text-[36px] font-normal leading-tight tracking-[-0.04em] text-[#222222] min-[600px]:text-[48px] min-[830px]:text-[60px]"
+          style={{
+            fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif',
+          }}
+        >
+          Shilah Al Jakarti
+        </h1>
 
-            {/* Main Title */}
-            <h1
-              className="m-0 text-[36px] font-normal leading-[1.05] tracking-[-0.04em] text-white min-[600px]:text-[50px] min-[830px]:text-[66px] min-[1140px]:text-[78px]"
-              style={{
-                fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                textShadow: '0 2px 12px rgba(0,0,0,0.6)',
-              }}
-            >
-              Shilah Al Jakarti
-            </h1>
+        {/* Subtitle */}
+        <p
+          className="mx-auto mt-4 max-w-[680px] text-[16px] leading-[1.6] text-[#666666] min-[600px]:text-[18px]"
+          style={{
+            fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
+          }}
+        >
+          Selamat datang di website portofolio saya. Gemar bermain game{' '}
+          <strong className="font-semibold text-[#111111]">Super Sus</strong> (ID:{' '}
+          <span className="font-mono font-semibold text-[#0284c7]">shill23</span>), berolahraga, dan sedang antusias belajar coding serta membuat website modern menggunakan bantuan AI.
+        </p>
 
-            {/* Subtitle */}
-            <p
-              className="mt-3 max-w-[650px] text-[15px] leading-[1.55] text-[#dddddd] min-[600px]:text-[17px] min-[830px]:text-[19px]"
-              style={{
-                fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                textShadow: '0 1px 4px rgba(0,0,0,0.7)',
-              }}
-            >
-              Selamat datang di website portofolio saya. Gemar bermain game <strong className="font-semibold text-white">Super Sus</strong>, berolahraga, dan antusias mendalami coding & pembuatan website modern bersama AI.
-            </p>
-
-            {/* Quick Action Navigation Buttons */}
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#111111] shadow-lg transition-all hover:bg-[#eeeeee] hover:scale-[1.02] active:scale-[0.98]"
-                style={{
-                  fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                }}
-              >
-                <span>👤</span> Tentang Saya
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/50 px-6 py-3 text-[14px] font-semibold text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/50 hover:scale-[1.02] active:scale-[0.98]"
-                style={{
-                  fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                }}
-              >
-                <span>🎨</span> Portfolio (Coming Soon)
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/50 px-6 py-3 text-[14px] font-semibold text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/50 hover:scale-[1.02] active:scale-[0.98]"
-                style={{
-                  fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                }}
-              >
-                <span>💬</span> Hubungi Saya
-              </Link>
-            </div>
-          </div>
+        {/* Action Buttons */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 rounded-full bg-[#222222] px-6 py-3 text-[14px] font-semibold text-white shadow-md transition-all hover:bg-[#444444] hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
+            }}
+          >
+            <span>👤</span> Tentang Saya
+          </Link>
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 rounded-full border border-[#cccccc] bg-white px-6 py-3 text-[14px] font-semibold text-[#333333] shadow-sm transition-all hover:bg-[#f5f5f5] hover:border-[#999999] hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
+            }}
+          >
+            <span>🎨</span> Portfolio (Coming Soon)
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full border border-[#cccccc] bg-white px-6 py-3 text-[14px] font-semibold text-[#333333] shadow-sm transition-all hover:bg-[#f5f5f5] hover:border-[#999999] hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
+            }}
+          >
+            <span>💬</span> Hubungi Saya
+          </Link>
         </div>
       </div>
     </section>
