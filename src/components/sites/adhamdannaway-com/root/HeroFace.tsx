@@ -195,7 +195,7 @@ export function HeroFace() {
               <Image
                 id="face-img"
                 src="/images/adham-dannaway-designer-coder.jpg"
-                alt="Adham Dannaway UI designer"
+                alt="Shilah Al Jakarti Portfolio"
                 width={1040}
                 height={600}
                 priority

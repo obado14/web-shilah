@@ -11,7 +11,7 @@ const portfolioItems: PortfolioCard[] = [
     title: 'My Figma design system',
     category: 'Design system',
     imageSrc: '/images/feature-figma-design-system.webp',
-    href: 'https://www.adhamdannaway.com/portfolio/figma-design-system',
+    href: '#',
     altText: 'Figma design system',
   },
   {
@@ -19,7 +19,7 @@ const portfolioItems: PortfolioCard[] = [
     title: 'My UI design book',
     category: 'Book',
     imageSrc: '/images/feature-ui-design-book.webp',
-    href: 'https://www.adhamdannaway.com/portfolio/ui-design-book',
+    href: '#',
     altText: 'UI design book',
   },
   {
@@ -27,7 +27,7 @@ const portfolioItems: PortfolioCard[] = [
     title: 'Creating a lean design system',
     category: 'Design system',
     imageSrc: '/images/feature-william-hill-design-system.jpg',
-    href: 'https://www.adhamdannaway.com/portfolio/creating-a-lean-design-system',
+    href: '#',
     altText: 'Creating a lean design system',
   },
 ];

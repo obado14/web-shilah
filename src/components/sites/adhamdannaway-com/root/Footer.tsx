@@ -54,7 +54,7 @@ export function Footer() {
                 fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
               }}
             >
-              &copy; 2026 Adham Dannaway
+              &copy; 2026 Shilah Al Jakarti
             </Link>
           </div>
 

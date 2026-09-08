@@ -2,27 +2,27 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.adhamdannaway.com'),
-  title: 'Adham Dannaway | Product designer & front end developer',
+  metadataBase: new URL('https://web-shilah.vercel.app'),
+  title: 'Shilah Al Jakarti | Portfolio',
   description:
-    'Product designer and front end developer with a passion for designing beautiful and functional user experiences.',
+    'Portfolio of Shilah Al Jakarti - high school student, aspiring web developer, and gamer.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'Adham Dannaway | Product designer & front end developer',
+    title: 'Shilah Al Jakarti | Portfolio',
     description:
-      'Product designer and front end developer with a passion for designing beautiful and functional user experiences.',
-    url: 'https://www.adhamdannaway.com/',
-    siteName: 'Adham Dannaway',
+      'Portfolio of Shilah Al Jakarti - high school student, aspiring web developer, and gamer.',
+    url: 'https://web-shilah.vercel.app',
+    siteName: 'Shilah Al Jakarti',
     images: [
       {
         url: '/images/adham-dannaway-designer-coder.jpg',
         width: 1040,
         height: 600,
-        alt: 'Adham Dannaway UI designer & front end developer',
+        alt: 'Shilah Al Jakarti Portfolio',
       },
     ],
     locale: 'en_US',
@@ -30,11 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@AdhamDannaway',
-    creator: '@AdhamDannaway',
-    title: 'Adham Dannaway | Product designer & front end developer',
+    title: 'Shilah Al Jakarti | Portfolio',
     description:
-      'Product designer and front end developer with a passion for designing beautiful and functional user experiences.',
+      'Portfolio of Shilah Al Jakarti - high school student, aspiring web developer, and gamer.',
     images: ['/images/adham-dannaway-designer-coder.jpg'],
   },
 };

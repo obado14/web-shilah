@@ -28,7 +28,7 @@ export function Header() {
           <Link
             href="/"
             className="block text-[0px] leading-[0] opacity-100 transition-opacity duration-300 hover:opacity-50"
-            title="Adham Dannaway"
+            title="Shilah Al Jakarti"
           >
             {/* Desktop Logo */}
             <span
@@ -39,7 +39,7 @@ export function Header() {
                 backgroundRepeat: 'no-repeat',
               }}
             >
-              Adham Dannaway
+              Shilah Al Jakarti
             </span>
             {/* Mobile Logo */}
             <span
@@ -50,7 +50,7 @@ export function Header() {
                 backgroundRepeat: 'no-repeat',
               }}
             >
-              Adham Dannaway
+              Shilah Al Jakarti
             </span>
           </Link>
 
@@ -120,10 +120,10 @@ export function Header() {
                 <ul className="flex items-center space-x-3">
                   <li>
                     <a
-                      href="https://www.twitter.com/AdhamDannaway"
+                      href="https://twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Follow me on Twitter"
+                      title="Twitter"
                       className="block h-[32px] w-[32px] text-[0px] opacity-100 transition-opacity duration-300 hover:opacity-50"
                       style={{
                         backgroundImage: 'url(/images/sprite.png)',
@@ -136,10 +136,10 @@ export function Header() {
                   </li>
                   <li>
                     <a
-                      href="https://au.linkedin.com/in/adhamdannaway"
+                      href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Connect with me on LinkedIn"
+                      title="LinkedIn"
                       className="block h-[32px] w-[32px] text-[0px] opacity-100 transition-opacity duration-300 hover:opacity-50"
                       style={{
                         backgroundImage: 'url(/images/sprite.png)',
@@ -152,10 +152,10 @@ export function Header() {
                   </li>
                   <li>
                     <a
-                      href="https://www.facebook.com/ilikeadham"
+                      href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Like me on Facebook"
+                      title="Facebook"
                       className="block h-[32px] w-[32px] text-[0px] opacity-100 transition-opacity duration-300 hover:opacity-50"
                       style={{
                         backgroundImage: 'url(/images/sprite.png)',
@@ -168,10 +168,10 @@ export function Header() {
                   </li>
                   <li>
                     <a
-                      href="https://www.instagram.com/adham.dannaway"
+                      href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Follow me on Instagram"
+                      title="Instagram"
                       className="block h-[32px] w-[32px] text-[0px] opacity-100 transition-opacity duration-300 hover:opacity-50"
                       style={{
                         backgroundImage: 'url(/images/sprite.png)',
@@ -222,10 +222,10 @@ export function Header() {
               <ul className="flex items-center justify-center space-x-4">
                 <li>
                   <a
-                    href="https://www.twitter.com/AdhamDannaway"
+                    href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Follow me on Twitter"
+                    title="Twitter"
                     className="inline-block h-[32px] w-[32px] text-[0px]"
                     style={{
                       backgroundImage: 'url(/images/sprite.png)',
@@ -238,10 +238,10 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="https://au.linkedin.com/in/adhamdannaway"
+                    href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Connect with me on LinkedIn"
+                    title="LinkedIn"
                     className="inline-block h-[32px] w-[32px] text-[0px]"
                     style={{
                       backgroundImage: 'url(/images/sprite.png)',
@@ -254,10 +254,10 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="https://www.facebook.com/ilikeadham"
+                    href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Like me on Facebook"
+                    title="Facebook"
                     className="inline-block h-[32px] w-[32px] text-[0px]"
                     style={{
                       backgroundImage: 'url(/images/sprite.png)',
@@ -270,10 +270,10 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/adham.dannaway"
+                    href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Follow me on Instagram"
+                    title="Instagram"
                     className="inline-block h-[32px] w-[32px] text-[0px]"
                     style={{
                       backgroundImage: 'url(/images/sprite.png)',

@@ -1,6 +1,6 @@
-# 🎨 Adham Dannaway Portfolio Clone
+# 🎨 Shilah Al Jakarti Portfolio
 
-A pixel-perfect, modern re-creation of the iconic portfolio website [adhamdannaway.com](https://www.adhamdannaway.com/), built using **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**.
+A clean, responsive, modern personal portfolio website for **Shilah Al Jakarti**, inspired by the split-face design aesthetic, built using **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
