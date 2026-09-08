@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export function HeroFace() {
-  const faceRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // xp represents the split x position (center is 520 out of 1040)
   const [xp, setXp] = useState<number>(520);
@@ -32,7 +31,7 @@ export function HeroFace() {
       setXp((prev) => {
         const diff = targetXp.current - prev;
         if (Math.abs(diff) < 0.1) {
-          if (!isHovered.current && prev === 520) {
+          if (!isHovered.current && Math.abs(prev - 520) < 0.1) {
             animFrameId.current = null;
             return 520;
           }
@@ -40,7 +39,7 @@ export function HeroFace() {
             return 520;
           }
         }
-        return prev + diff / 12;
+        return prev + diff / 10;
       });
 
       animFrameId.current = requestAnimationFrame(loop);
@@ -55,15 +54,25 @@ export function HeroFace() {
     };
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (!faceRef.current) return;
-    const rect = faceRef.current.getBoundingClientRect();
-    const relX = e.clientX - rect.left;
-    // Bound relX between 0 and 1040
-    targetXp.current = Math.max(0, Math.min(1040, relX));
+  const handlePointerMove = (clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const relX = clientX - rect.left;
+    const ratio = Math.max(0, Math.min(1, relX / rect.width));
+    targetXp.current = ratio * 1040;
 
     if (!animFrameId.current) {
       animFrameId.current = requestAnimationFrame(updatePhysicsRef.current);
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    handlePointerMove(e.clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
+    if (e.touches[0]) {
+      handlePointerMove(e.touches[0].clientX);
     }
   };
 
@@ -82,188 +91,228 @@ export function HeroFace() {
     }
   };
 
-  // Calculate dynamic properties matching original formula:
-  // designerImg: width: 420 + (520 - xp) * 0.5, left: 100 + (520 - xp) * 0.1
-  // coderImg: width: 420 + (xp - 520) * 0.5, right: 100 - (520 - xp) * 0.1
-  // designerBg: left: 100 + (520 - xp) * 0.05, opacity: ((1040 - xp) / 520)
-  // coderBg: right: 100 + (xp - 520) * 0.05, opacity: (xp / 520)
-  // designerDesc: opacity: ((1040 - xp) / 520)
-  // coderDesc: opacity: (xp / 520)
-  const designerImgWidth = 420 + (520 - xp) * 0.5;
-  const designerImgLeft = 100 + (520 - xp) * 0.1;
+  // Clamped split percentage for the divider (8% to 92%)
+  const splitRatio = xp / 1040;
+  const splitPercent = Math.max(8, Math.min(92, splitRatio * 100));
 
-  const coderImgWidth = 420 + (xp - 520) * 0.5;
-  const coderImgRight = 100 - (520 - xp) * 0.1;
-
-  const designerBgLeft = 100 + (520 - xp) * 0.05;
-  const designerBgOpacity = Math.max(0, Math.min(1, (1040 - xp) / 520));
-
-  const coderBgRight = 100 + (xp - 520) * 0.05;
-  const coderBgOpacity = Math.max(0, Math.min(1, xp / 520));
-
-  const designerDescOpacity = Math.max(0, Math.min(1, (1040 - xp) / 520));
-  const coderDescOpacity = Math.max(0, Math.min(1, xp / 520));
+  // Dynamic opacity for designer and coder cards
+  const designerOpacity = Math.max(0.45, Math.min(1, (1040 - xp) / 520));
+  const coderOpacity = Math.max(0.45, Math.min(1, xp / 520));
 
   return (
     <section
       id="section"
-      ref={sectionRef}
       onMouseMove={handleMouseMove}
+      onTouchMove={handleTouchMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden border-t border-white bg-white pt-[62px] min-[830px]:pt-[92px]"
+      className="relative overflow-hidden border-t border-white bg-white pt-[70px] pb-10 min-[830px]:pt-[100px] min-[830px]:pb-16"
       style={{
         borderBottom: '#dddddd solid 1px',
       }}
     >
-      <div className="mx-auto max-w-[1040px] px-0">
-        <div className="relative w-full">
-          {/* Main Face Container */}
-          <div
-            id="face"
-            ref={faceRef}
-            className="relative mx-auto w-full min-[1140px]:h-[600px] min-[1140px]:w-[1040px]"
+      <div className="mx-auto max-w-[1040px] px-4 min-[1140px]:px-0">
+        {/* Mobile & Tablet Header Navigation (< 1024px) */}
+        <div className="mb-6 flex items-center justify-between border-b border-[#eeeeee] pb-4 min-[1024px]:hidden">
+          <Link
+            href="/portfolio"
+            className="group block text-left no-underline transition-opacity"
+            style={{ opacity: designerOpacity }}
           >
-            {/* Left Half Link: Designer */}
-            <Link
-              href="/portfolio"
-              className="group absolute bottom-0 left-0 top-0 z-10 block h-[20%] w-[40%] text-[#757575] no-underline min-[768px]:h-[44%] min-[768px]:w-[30%] min-[900px]:w-[32%] min-[1024px]:w-[30%] min-[1140px]:h-[600px] min-[1140px]:w-[520px]"
-              style={{
-                margin: 'auto 0',
-              }}
+            <h1
+              className="m-0 text-[26px] font-normal leading-tight tracking-[-0.04em] text-[#333333] group-hover:text-[#757575] min-[600px]:text-[34px]"
+              style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
-              <div
-                id="designer"
-                className="h-full w-full"
-              >
-                <div
-                  id="designer-desc"
-                  className="px-4 text-left transition-opacity duration-300 min-[1140px]:absolute min-[1140px]:left-0 min-[1140px]:top-[180px] min-[1140px]:w-[290px] min-[1140px]:px-0"
-                  style={{ opacity: designerDescOpacity }}
-                >
-                  <h1
-                    className="m-0 text-[22px] font-normal leading-[1.1] tracking-[-0.06em] text-[#333333] transition-colors group-hover:text-[#757575] min-[375px]:text-[26px] min-[414px]:text-[30px] min-[500px]:text-[36px] min-[600px]:text-[46px] min-[768px]:text-[56px] min-[900px]:text-[64px] min-[1024px]:text-[72px] min-[1140px]:text-[82px]"
-                    style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
-                  >
-                    designer
-                  </h1>
-                  <p
-                    className="hidden text-[#757575] min-[768px]:mt-2 min-[768px]:block min-[768px]:text-[16px] min-[1024px]:text-[18px] min-[1024px]:leading-[1.4]"
-                    style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
-                  >
-                    Product designer specialising in UI design and design systems.
-                  </p>
+              designer
+            </h1>
+            <p
+              className="mt-0.5 text-[13px] text-[#757575] min-[600px]:text-[14px]"
+              style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              Creative & Portfolio
+            </p>
+          </Link>
+
+          <div className="h-8 w-[1px] bg-[#e0e0e0]" />
+
+          <Link
+            href="/about"
+            className="group block text-right no-underline transition-opacity"
+            style={{ opacity: coderOpacity }}
+          >
+            <h1
+              className="m-0 text-[26px] font-normal leading-tight tracking-[-0.04em] text-[#333333] group-hover:text-[#0284c7] min-[600px]:text-[34px]"
+              style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <span className="text-[#0284c7]">&lt;</span>coder<span className="text-[#0284c7]">&gt;</span>
+            </h1>
+            <p
+              className="mt-0.5 text-[13px] text-[#757575] min-[600px]:text-[14px]"
+              style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              Web Dev & AI
+            </p>
+          </Link>
+        </div>
+
+        {/* Hero Interactive Canvas Container */}
+        <div
+          id="face"
+          ref={containerRef}
+          className="relative mx-auto w-full select-none overflow-hidden rounded-[20px] border border-[#e5e5e5] bg-[#111111] shadow-[0_16px_50px_rgba(0,0,0,0.12)] min-[1024px]:h-[585px]"
+        >
+          {/* Main Shilah Photograph */}
+          <div className="relative h-full w-full">
+            <Image
+              id="face-img"
+              src="/images/shilah-hero.png"
+              alt="Shilah Al Jakarti"
+              width={1671}
+              height={941}
+              priority
+              className={`h-full w-full object-cover transition-opacity duration-700 ${
+                isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+
+            {/* Subtle Ambient Mood Overlays */}
+            {/* Left Warm Amber Glow (Designer Mood) */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-amber-500/15 via-orange-400/5 to-transparent transition-opacity duration-300"
+              style={{ opacity: (1040 - xp) / 1040 }}
+            />
+            {/* Right Cool Blue Tech Glow (Coder Mood) */}
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-sky-500/20 via-blue-400/5 to-transparent transition-opacity duration-300"
+              style={{ opacity: xp / 1040 }}
+            />
+
+            {/* Interactive Vertical Split Divider */}
+            <div
+              className="pointer-events-none absolute inset-y-0 z-20 transition-all duration-75"
+              style={{ left: `${splitPercent}%` }}
+            >
+              {/* Glowing Divider Line */}
+              <div className="absolute inset-y-0 -left-[1px] w-[2px] bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)]" />
+
+              {/* Central Interactive Handle */}
+              <div className="absolute top-1/2 -left-5 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/90 bg-white/90 shadow-xl backdrop-blur-md transition-transform duration-150">
+                <div className="flex items-center gap-1 text-[12px] font-bold text-[#333333]">
+                  <span>‹</span>
+                  <span>›</span>
                 </div>
               </div>
-            </Link>
 
-            {/* Right Half Link: Coder */}
-            <Link
-              href="/about"
-              className="group absolute bottom-0 right-0 top-0 z-10 block h-[20%] w-[40%] text-right text-[#757575] no-underline min-[768px]:h-[44%] min-[768px]:w-[30%] min-[900px]:w-[32%] min-[1024px]:w-[30%] min-[1140px]:h-[600px] min-[1140px]:w-[520px] min-[1140px]:text-left"
-              style={{
-                margin: 'auto 0',
-              }}
-            >
-              <div
-                id="coder"
-                className="h-full w-full"
-              >
-                <div
-                  id="coder-desc"
-                  className="px-4 text-right transition-opacity duration-300 min-[1140px]:absolute min-[1140px]:right-0 min-[1140px]:top-[180px] min-[1140px]:w-[290px] min-[1140px]:px-0 min-[1140px]:text-left"
-                  style={{ opacity: coderDescOpacity }}
-                >
-                  <h1
-                    className="m-0 text-[22px] font-normal leading-[1.1] tracking-[-0.06em] text-[#333333] transition-colors group-hover:text-[#757575] min-[375px]:text-[26px] min-[414px]:text-[30px] min-[500px]:text-[36px] min-[600px]:text-[46px] min-[768px]:text-[56px] min-[900px]:text-[64px] min-[1024px]:text-[72px] min-[1140px]:text-[82px]"
-                    style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
-                  >
-                    <span className="pr-[0.1em] leading-none">&lt;</span>coder<span className="pl-[0.14em] leading-none">&gt;</span>
-                  </h1>
-                  <p
-                    className="hidden text-[#757575] min-[768px]:mt-2 min-[768px]:block min-[768px]:text-[16px] min-[1024px]:text-[18px] min-[1024px]:leading-[1.4]"
-                    style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
-                  >
-                    Front end developer who writes clean, elegant and efficient code.
-                  </p>
-                </div>
+              {/* Floating Pills Near Top of Split Line */}
+              <div className="absolute top-4 -translate-x-full pr-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/70 px-3 py-1 text-[11px] font-medium text-white shadow-lg backdrop-blur-md">
+                  <span>🎨</span> designer
+                </span>
               </div>
-            </Link>
+              <div className="absolute top-4 pl-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/70 px-3 py-1 text-[11px] font-medium text-white shadow-lg backdrop-blur-md">
+                  <span>💻</span> &lt;coder&gt;
+                </span>
+              </div>
+            </div>
 
-            {/* Responsive Fallback Portrait (< 1140px) */}
-            <div className="relative mx-auto block w-full max-w-[1040px] min-[1140px]:hidden">
-              <Image
-                id="face-img"
-                src="/images/adham-dannaway-designer-coder.jpg"
-                alt="Shilah Al Jakarti Portfolio"
-                width={1040}
-                height={600}
-                priority
-                className="h-auto w-full"
+            {/* Clickable Full-Height Split Overlay Links */}
+            <div className="absolute inset-0 z-10 flex">
+              <Link
+                href="/portfolio"
+                title="View Portfolio"
+                className="h-full cursor-pointer"
+                style={{ width: `${splitPercent}%` }}
+              />
+              <Link
+                href="/about"
+                title="About Shilah"
+                className="h-full cursor-pointer"
+                style={{ width: `${100 - splitPercent}%` }}
               />
             </div>
 
-            {/* Desktop Dynamic Interactive Split Face Layers (>= 1140px) */}
-            <div className="hidden min-[1140px]:block">
-              {/* Designer Image Layer */}
-              <div
-                id="designer-img"
-                className={`pointer-events-none absolute top-0 z-[1] h-[600px] transition-opacity duration-1000 ${
-                  isLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  backgroundImage: 'url(/images/sprite-home.png)',
-                  backgroundPosition: '0px -600px',
-                  backgroundRepeat: 'no-repeat',
-                  width: `${designerImgWidth}px`,
-                  left: `${designerImgLeft}px`,
-                  overflow: 'hidden',
-                }}
-              />
+            {/* Desktop Floating HUD Cards (>= 1024px) */}
+            {/* Left Card: Designer */}
+            <div
+              className="pointer-events-none absolute bottom-6 left-6 z-20 hidden max-w-[340px] rounded-2xl border border-white/80 bg-white/85 p-5 text-left shadow-xl backdrop-blur-md transition-all duration-300 min-[1024px]:block"
+              style={{ opacity: designerOpacity }}
+            >
+              <Link
+                href="/portfolio"
+                className="pointer-events-auto block text-left no-underline"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                    Creative
+                  </span>
+                </div>
+                <h1
+                  className="mt-2 text-[32px] font-normal leading-none tracking-[-0.05em] text-[#222222] transition-colors hover:text-[#555555] min-[1140px]:text-[38px]"
+                  style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                >
+                  designer
+                </h1>
+                <p
+                  className="mt-2 text-[14px] leading-[1.45] text-[#555555]"
+                  style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                >
+                  High school student exploring creative design, visual aesthetics, and digital ideas.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[#333333] hover:underline">
+                  Lihat Portfolio →
+                </span>
+              </Link>
+            </div>
 
-              {/* Coder Image Layer */}
-              <div
-                id="coder-img"
-                className={`pointer-events-none absolute top-0 z-[1] h-[600px] transition-opacity duration-1000 ${
-                  isLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  backgroundImage: 'url(/images/sprite-home.png)',
-                  backgroundPosition: '100% 0px',
-                  backgroundRepeat: 'no-repeat',
-                  width: `${coderImgWidth}px`,
-                  right: `${coderImgRight}px`,
-                  overflow: 'hidden',
-                }}
-              />
-
-              {/* Designer Background Shade Layer */}
-              <div
-                id="designer-bg"
-                className={`pointer-events-none absolute bottom-0 h-[200px] w-[420px] transition-transform duration-300`}
-                style={{
-                  backgroundImage: 'url(/images/sprite-home.png)',
-                  backgroundPosition: '0px -1300px',
-                  backgroundRepeat: 'no-repeat',
-                  left: `${designerBgLeft}px`,
-                  opacity: designerBgOpacity,
-                }}
-              />
-
-              {/* Coder Background Shade Layer */}
-              <div
-                id="coder-bg"
-                className={`pointer-events-none absolute bottom-0 h-[200px] w-[420px] transition-transform duration-300`}
-                style={{
-                  backgroundImage: 'url(/images/sprite-home.png)',
-                  backgroundPosition: '100% -1300px',
-                  backgroundRepeat: 'no-repeat',
-                  right: `${coderBgRight}px`,
-                  opacity: coderBgOpacity,
-                }}
-              />
+            {/* Right Card: Coder */}
+            <div
+              className="pointer-events-none absolute bottom-6 right-6 z-20 hidden max-w-[340px] rounded-2xl border border-white/80 bg-white/85 p-5 text-right shadow-xl backdrop-blur-md transition-all duration-300 min-[1024px]:block"
+              style={{ opacity: coderOpacity }}
+            >
+              <Link
+                href="/about"
+                className="pointer-events-auto block text-right no-underline"
+              >
+                <div className="flex items-center justify-end gap-2">
+                  <span className="rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-sky-800">
+                    Developer & Gamer
+                  </span>
+                </div>
+                <h1
+                  className="mt-2 text-[32px] font-normal leading-none tracking-[-0.05em] text-[#222222] transition-colors hover:text-[#0284c7] min-[1140px]:text-[38px]"
+                  style={{ fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                >
+                  <span className="text-[#0284c7]">&lt;</span>coder<span className="text-[#0284c7]">&gt;</span>
+                </h1>
+                <p
+                  className="mt-2 text-[14px] leading-[1.45] text-[#555555]"
+                  style={{ fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                >
+                  Aspiring developer learning web development with AI, coding websites, and playing Super Sus.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[#0284c7] hover:underline">
+                  Tentang Shilah →
+                </span>
+              </Link>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Action Buttons (< 1024px) */}
+        <div className="mt-4 grid grid-cols-2 gap-3 min-[1024px]:hidden">
+          <Link
+            href="/portfolio"
+            className="flex items-center justify-center gap-2 rounded-xl border border-[#dddddd] bg-[#fafafa] py-2.5 text-center text-[14px] font-semibold text-[#333333] transition-colors hover:bg-neutral-100"
+          >
+            <span>🎨</span> Portfolio
+          </Link>
+          <Link
+            href="/about"
+            className="flex items-center justify-center gap-2 rounded-xl border border-[#dddddd] bg-[#fafafa] py-2.5 text-center text-[14px] font-semibold text-[#333333] transition-colors hover:bg-neutral-100"
+          >
+            <span>💻</span> About Me
+          </Link>
         </div>
       </div>
     </section>

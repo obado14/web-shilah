@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     siteName: 'Shilah Al Jakarti',
     images: [
       {
-        url: '/images/adham-dannaway-designer-coder.jpg',
-        width: 1040,
-        height: 600,
+        url: '/images/shilah-hero.png',
+        width: 1671,
+        height: 941,
         alt: 'Shilah Al Jakarti Portfolio',
       },
     ],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'Shilah Al Jakarti | Portfolio',
     description:
       'Portfolio of Shilah Al Jakarti - high school student, aspiring web developer, and gamer.',
-    images: ['/images/adham-dannaway-designer-coder.jpg'],
+    images: ['/images/shilah-hero.png'],
   },
 };
 
