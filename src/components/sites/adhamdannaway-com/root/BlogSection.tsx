@@ -30,7 +30,7 @@ export function BlogSection() {
             >
               Technology & Learning
             </span>
-            <span className="text-[14px] text-[#888888]">Maret 2026</span>
+            <span className="text-[14px] text-[#888888]">March 2026</span>
           </div>
 
           <h2
@@ -39,7 +39,7 @@ export function BlogSection() {
               fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif',
             }}
           >
-            Pengalaman Pertama Kali Belajar Bikin Website Pakai Bantuan AI
+            My First Experience Learning to Build a Website with AI Assistance
           </h2>
 
           <div
@@ -49,24 +49,24 @@ export function BlogSection() {
             }}
           >
             <p>
-              Sebagai anak SMA yang kesehariannya cukup simpel—mulai dari sekolah, ibadah, istirahat, olahraga rutin setelah Maghrib, dan sesekali santai push rank main <strong>Super Sus</strong>—dunia pemrograman awalnya berasa asing dan rumit banget di mata saya.
+              As a high school student with a fairly simple daily routine—going to school, worshipping, resting, exercising regularly after Maghrib, and occasionally relaxing by pushing rank in <strong>Super Sus</strong>—the world of programming initially felt very unfamiliar and complicated to me.
             </p>
 
             <p>
-              Tapi belakangan ini saya mulai tertarik dengan dunia teknologi, terutama cara kerja website. Ketika mendengar soal AI yang bisa membantu coding dan pengembangan web, rasa penasaran saya langsung muncul. Akhirnya saya putuskan untuk langsung mencoba belajar membuat website sendiri.
+              However, lately I&apos;ve become interested in technology, especially in how websites work. When I heard about AI that could help with coding and web development, my curiosity immediately grew. So, I decided to start learning how to build my own website.
             </p>
 
             <p>
-              Ternyata prosesnya seru banget! Bareng AI, saya belajar memahami konsep dasar Next.js, bagaimana cara menata tampilan dengan Tailwind CSS, sampai menerapkan efek interaktif split-face yang responsif. AI bukan sekadar menulis kode buat saya, tapi jadi teman diskusi yang menjelaskan fungsi tiap komponen ketika saya menemui error atau bingung mengatur tata letak.
+              It turned out to be a really fun experience! With the help of AI, I learned the basics of Next.js, how to organize designs using Tailwind CSS, and how to implement responsive interactive effects such as a split-face effect. AI wasn&apos;t just writing code for me—it became a discussion partner that helped explain what each component did whenever I encountered an error or had trouble arranging the layout.
             </p>
 
             <p>
-              Bisa melihat website buatan sendiri berhasil di-compile, di-push ke GitHub, dan live di internet memberikan kepuasan tersendiri. Saya sadar perjalanan belajar saya masih panjang dan masih pemula, tapi ini adalah langkah awal yang bikin saya makin bersemangat untuk terus mengasah skill dan menciptakan karya-karya baru ke depannya!
+              Being able to see my own website successfully compile, get pushed to GitHub, and go live on the internet gave me a great sense of satisfaction. I realize that I still have a long way to go and that I&apos;m still a beginner, but this is a first step that has made me even more excited to keep improving my skills and creating new projects in the future!
             </p>
           </div>
 
           <div className="mt-8 border-t border-[#e0e0e0] pt-4 text-right">
-            <span className="text-[14px] italic text-[#757575]">— Ditulis oleh Shilah Al Jakarti</span>
+            <span className="text-[14px] italic text-[#757575]">— Written by Shilah Al Jakarti</span>
           </div>
         </article>
       </div>
