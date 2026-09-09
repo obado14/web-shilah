@@ -69,7 +69,7 @@ export function HeroFace() {
                 textShadow: '0 1px 4px rgba(0,0,0,0.9)',
               }}
             >
-              Gamer Super Sus (ID: <span className="font-mono font-semibold text-[#38bdf8]">shill23</span>) & belajar web dev dengan AI.
+              Super Sus Gamer (ID: <span className="font-mono font-semibold text-[#38bdf8]">shill23</span>) & learning web dev with AI.
             </p>
 
             <div className="mt-3 flex items-center gap-2">
@@ -78,7 +78,7 @@ export function HeroFace() {
                 className="flex-1 py-2 text-center rounded-full bg-white text-[12px] font-semibold text-[#111111] shadow-lg active:scale-95 transition-transform"
                 style={{ fontFamily: '"proxima nova semibold", sans-serif' }}
               >
-                👤 Tentang
+                👤 About
               </Link>
               <Link
                 href="/portfolio"
@@ -92,7 +92,7 @@ export function HeroFace() {
                 className="py-2 px-3.5 text-center rounded-full border border-white/30 bg-black/60 text-[12px] font-semibold text-white shadow-lg backdrop-blur-md active:scale-95 transition-transform"
                 style={{ fontFamily: '"proxima nova semibold", sans-serif' }}
               >
-                💬 Kontak
+                💬 Contact
               </Link>
             </div>
           </div>
@@ -129,9 +129,9 @@ export function HeroFace() {
                 textShadow: '0 1px 6px rgba(0,0,0,0.8)',
               }}
             >
-              Selamat datang di website portofolio saya. Gemar bermain game{' '}
+              Welcome to my portfolio website. Passionate about playing{' '}
               <strong className="font-semibold text-white">Super Sus</strong> (ID:{' '}
-              <span className="font-mono font-semibold text-[#38bdf8]">shill23</span>), berolahraga, dan sedang antusias mendalami coding & pembuatan website modern bersama AI.
+              <span className="font-mono font-semibold text-[#38bdf8]">shill23</span>), staying active with workouts, and enthusiastically learning coding & building modern websites with AI.
             </p>
 
             {/* Quick Action Navigation Buttons */}
@@ -143,7 +143,7 @@ export function HeroFace() {
                   fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
                 }}
               >
-                <span>👤</span> Tentang Saya
+                <span>👤</span> About Me
               </Link>
               <Link
                 href="/portfolio"
@@ -161,7 +161,7 @@ export function HeroFace() {
                   fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
                 }}
               >
-                <span>💬</span> Hubungi Saya
+                <span>💬</span> Contact Me
               </Link>
             </div>
           </div>

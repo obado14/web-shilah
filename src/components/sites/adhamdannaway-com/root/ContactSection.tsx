@@ -35,7 +35,7 @@ export function ContactSection() {
               fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif',
             }}
           >
-            Let&apos;s Connect &amp; Mabar!
+            Let&apos;s Connect &amp; Play!
           </h2>
           <p
             className="mb-10 text-[18px] leading-[1.6] text-[#757575] min-[830px]:text-[20px]"
@@ -43,7 +43,7 @@ export function ContactSection() {
               fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
             }}
           >
-            Punya pertanyaan seputar web atau sekadar ingin menyapa? Silakan hubungi saya melalui kontak di bawah, atau add akun Super Sus kalau mau main bareng!
+            Have a question about web development or just want to say hi? Feel free to reach out via the contacts below, or add my Super Sus account if you want to play together!
           </p>
 
           {/* Contact Cards Grid */}
@@ -65,7 +65,7 @@ export function ContactSection() {
                 </p>
               </div>
               <span className="mt-4 inline-block text-[14px] text-[#25D366] font-medium">
-                Chat di WhatsApp &rarr;
+                Chat on WhatsApp &rarr;
               </span>
             </a>
 
@@ -106,7 +106,7 @@ export function ContactSection() {
                 onClick={handleCopyGameId}
                 className="mt-4 inline-flex items-center justify-center rounded-lg border border-[#e0e0e0] bg-[#f9f9f9] px-3 py-2 text-[13px] font-medium text-[#444444] transition-all hover:bg-[#ececec] active:scale-95 cursor-pointer"
               >
-                {copied ? '✅ ID Tersalin!' : '📋 Salin ID Mabar'}
+                {copied ? '✅ ID Copied!' : '📋 Copy Game ID'}
               </button>
             </div>
           </div>

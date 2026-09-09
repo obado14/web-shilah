@@ -52,7 +52,7 @@ export function PortfolioThumbs() {
                 fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
               }}
             >
-              Saat ini saya sedang asyik belajar coding dan membuat berbagai eksperimen website dengan bantuan AI. Karya dan proyek menarik akan segera dipajang di sini!
+              I am currently having fun learning coding and building various website experiments with AI assistance. Exciting projects and creations will be featured here soon!
             </p>
 
             {/* Visual Decorative Placeholder Grid */}
