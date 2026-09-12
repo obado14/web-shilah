@@ -22,7 +22,7 @@ export function HeroFace() {
       {/* Full-VH Background Photograph: Top-aligned on mobile so face is near top, centered on desktop */}
       <Image
         id="hero-img"
-        src="/images/shilah-hero.png"
+        src="/images/shilah-hero.jpeg"
         alt="Shilah Al Jakarti"
         fill
         priority
