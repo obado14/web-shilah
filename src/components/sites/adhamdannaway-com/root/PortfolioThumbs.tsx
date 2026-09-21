@@ -74,42 +74,60 @@ export function PortfolioThumbs() {
               I am currently having fun learning coding and building various website experiments with AI assistance. Exciting projects and creations will be featured here soon!
             </p>
 
-            {/* Portfolio Cards Grid: Staggered Animation */}
+            {/* Portfolio Cards Grid: Staggered Animation & Responsive Hover/Touch Interactions */}
             <div className="mt-8 grid grid-cols-1 gap-4 pt-4 min-[600px]:grid-cols-3">
-              {/* Card 1 */}
+              {/* Card 1: Web Experiments */}
               <div
                 data-reveal
-                className={`rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-500 ease-out hover:border-[#999999] hover:bg-white hover:shadow-sm ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
                 }`}
                 style={{ transitionDelay: '250ms' }}
               >
-                <span className="text-[24px]">💻</span>
-                <p className="mt-2 text-[14px] font-medium text-[#777777]">Web Experiments</p>
+                <div className="group rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#555555] hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] active:translate-y-0 active:scale-[0.98] select-none cursor-pointer">
+                  <span className="inline-block text-[24px] transition-transform duration-300 ease-out group-hover:scale-125 group-hover:-rotate-6">
+                    💻
+                  </span>
+                  <p className="mt-2 text-[14px] font-medium text-[#777777] transition-colors duration-300 ease-out group-hover:text-[#222222]">
+                    Web Experiments
+                  </p>
+                </div>
               </div>
 
-              {/* Card 2 */}
+              {/* Card 2: AI-Assisted Apps */}
               <div
                 data-reveal
-                className={`rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-500 ease-out hover:border-[#999999] hover:bg-white hover:shadow-sm ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
                 }`}
                 style={{ transitionDelay: '380ms' }}
               >
-                <span className="text-[24px]">🤖</span>
-                <p className="mt-2 text-[14px] font-medium text-[#777777]">AI-Assisted Apps</p>
+                <div className="group rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#555555] hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] active:translate-y-0 active:scale-[0.98] select-none cursor-pointer">
+                  <span className="inline-block text-[24px] transition-transform duration-300 ease-out group-hover:scale-125 group-hover:rotate-6">
+                    🤖
+                  </span>
+                  <p className="mt-2 text-[14px] font-medium text-[#777777] transition-colors duration-300 ease-out group-hover:text-[#222222]">
+                    AI-Assisted Apps
+                  </p>
+                </div>
               </div>
 
-              {/* Card 3 */}
+              {/* Card 3: Gaming Utilities */}
               <div
                 data-reveal
-                className={`rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-500 ease-out hover:border-[#999999] hover:bg-white hover:shadow-sm ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
                 }`}
                 style={{ transitionDelay: '510ms' }}
               >
-                <span className="text-[24px]">🎮</span>
-                <p className="mt-2 text-[14px] font-medium text-[#777777]">Gaming Utilities</p>
+                <div className="group rounded-[10px] border border-dashed border-[#cccccc] bg-[#fcfcfc] p-6 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#555555] hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] active:translate-y-0 active:scale-[0.98] select-none cursor-pointer">
+                  <span className="inline-block text-[24px] transition-transform duration-300 ease-out group-hover:scale-125 group-hover:-rotate-12">
+                    🎮
+                  </span>
+                  <p className="mt-2 text-[14px] font-medium text-[#777777] transition-colors duration-300 ease-out group-hover:text-[#222222]">
+                    Gaming Utilities
+                  </p>
+                </div>
               </div>
             </div>
           </div>
