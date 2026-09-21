@@ -44,6 +44,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full scroll-smooth antialiased">
+      <head>
+        <noscript>
+          <style>{`
+            [data-reveal],
+            .reveal-item {
+              opacity: 1 !important;
+              transform: none !important;
+              visibility: visible !important;
+            }
+          `}</style>
+        </noscript>
+      </head>
       <body className="min-h-full flex flex-col bg-white text-[#333333]">
         {children}
       </body>
