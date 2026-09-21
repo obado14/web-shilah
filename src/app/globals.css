@@ -167,4 +167,37 @@
 ::-webkit-selection {
   background: #111111;
   color: #ffffff;
+}
+
+/* Hero Ambient Glow Keyframe Animations */
+@keyframes heroGlow1 {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.12) translate3d(20px, -15px, 0);
+  }
+}
+
+@keyframes heroGlow2 {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.24;
+    transform: scale(0.92) translate3d(-15px, 20px, 0);
+  }
+}
+
+.animate-hero-glow-1 {
+  animation: heroGlow1 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-hero-glow-2 {
+  animation: heroGlow2 11s ease-in-out infinite alternate;
+  will-change: transform, opacity;
 }
