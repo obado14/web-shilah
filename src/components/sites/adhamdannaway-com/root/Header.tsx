@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,31 +28,19 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="block text-[0px] leading-[0] opacity-100 transition-opacity duration-300 hover:opacity-50"
+            className="group flex items-center transition-opacity duration-300 hover:opacity-80"
             title="Shilah Al Jakarti"
           >
-            {/* Desktop Logo */}
-            <span
-              className="hidden h-[92px] w-[62px] min-[830px]:inline-block"
-              style={{
-                backgroundImage: 'url(/images/sprite.png)',
-                backgroundPosition: '0px -93px',
-                backgroundRepeat: 'no-repeat',
-              }}
-            >
-              Shilah Al Jakarti
-            </span>
-            {/* Mobile Logo */}
-            <span
-              className="inline-block h-[62px] w-[40px] min-[830px]:hidden"
-              style={{
-                backgroundImage: 'url(/images/sprite-mobile.png)',
-                backgroundPosition: '0px -63px',
-                backgroundRepeat: 'no-repeat',
-              }}
-            >
-              Shilah Al Jakarti
-            </span>
+            <div className="relative h-[38px] w-[38px] min-[830px]:h-[48px] min-[830px]:w-[48px] transition-transform duration-300 ease-out group-hover:scale-105 active:scale-95">
+              <Image
+                src="/images/logo-sa-white.png"
+                alt="Shilah Al Jakarti Logo"
+                fill
+                priority
+                sizes="(min-width: 830px) 48px, 38px"
+                className="object-contain"
+              />
+            </div>
           </Link>
 
           {/* Mobile Hamburger Toggle Button */}
