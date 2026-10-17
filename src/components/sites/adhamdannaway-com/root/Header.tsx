@@ -28,16 +28,16 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="group flex items-center transition-opacity duration-300 hover:opacity-80"
+            className="group flex items-center transition-opacity duration-300 hover:opacity-85"
             title="Shilah Al Jakarti"
           >
-            <div className="relative h-[38px] w-[38px] min-[830px]:h-[48px] min-[830px]:w-[48px] transition-transform duration-300 ease-out group-hover:scale-105 active:scale-95">
+            <div className="relative h-[38px] w-[38px] min-[830px]:h-[46px] min-[830px]:w-[46px] overflow-hidden rounded-[8px] bg-white shadow-md transition-transform duration-300 ease-out group-hover:scale-105 active:scale-95">
               <Image
-                src="/images/logo-sa-white.png"
+                src="/images/logo-sa.png"
                 alt="Shilah Al Jakarti Logo"
                 fill
                 priority
-                sizes="(min-width: 830px) 48px, 38px"
+                sizes="(min-width: 830px) 46px, 38px"
                 className="object-contain"
               />
             </div>
