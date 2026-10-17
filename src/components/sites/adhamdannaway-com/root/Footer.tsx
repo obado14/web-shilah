@@ -31,8 +31,9 @@ export function Footer() {
         <a
           href="#top"
           onClick={scrollToTop}
-          className="pointer-events-auto absolute bottom-[-40px] left-1/2 block h-[90px] w-[118px] -translate-x-1/2 text-[0px] transition-all duration-300 hover:bottom-[-35px]"
+          className="pointer-events-auto absolute bottom-[-40px] left-1/2 block h-[90px] w-[118px] -translate-x-1/2 text-[0px] transition-all duration-300 hover:bottom-[-35px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-[20px]"
           title="Back to top"
+          aria-label="Back to top"
           style={{
             backgroundImage: 'url(/images/sprite.png)',
             backgroundPosition: '0 -217px',
@@ -49,7 +50,7 @@ export function Footer() {
           <div className="text-center text-[16px] min-[830px]:text-left">
             <Link
               href="/"
-              className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
+              className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#222222] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
               style={{
                 fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
               }}
@@ -59,7 +60,7 @@ export function Footer() {
           </div>
 
           {/* Footer Navigation (Desktop) */}
-          <nav id="nav-footer" className="mt-4 min-[830px]:mt-0">
+          <nav id="nav-footer" aria-label="Footer navigation" className="mt-4 min-[830px]:mt-0">
             <ul
               className="flex flex-wrap items-center justify-center space-x-5 text-[16px]"
               style={{
@@ -69,7 +70,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
+                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#222222] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
                 >
                   about
                 </Link>
@@ -77,7 +78,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/portfolio"
-                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
+                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#222222] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
                 >
                   portfolio
                 </Link>
@@ -85,7 +86,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
+                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#222222] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
                 >
                   blog
                 </Link>
@@ -93,7 +94,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#333333]"
+                  className="text-[#757575] no-underline transition-colors duration-300 hover:text-[#222222] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1"
                 >
                   contact
                 </Link>

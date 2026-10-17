@@ -71,26 +71,26 @@ export function Header() {
         isMounted ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       } ${
         isScrolled
-          ? 'bg-[#090909]/92 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.65)] border-b border-white/[0.1]'
-          : 'bg-[#0a0a0a]/75 backdrop-blur-md border-b border-white/[0.06]'
+          ? 'bg-[#090909]/92 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.7)] border-b border-white/[0.1]'
+          : 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/[0.07]'
       }`}
     >
-      <div className="mx-auto flex h-[64px] min-[830px]:h-[76px] max-w-[1240px] items-center justify-between px-5 min-[830px]:px-8">
+      <div className="mx-auto flex h-[64px] min-[830px]:h-[78px] max-w-[1240px] items-center justify-between px-5 min-[830px]:px-8">
         {/* 1. Left: Brand Identity (Luxury Monogram Emblem & Typography) */}
         <Link
           href="/"
-          className="group flex items-center gap-3 no-underline transition-all duration-300"
+          className="group flex items-center gap-3 no-underline transition-all duration-300 rounded-lg focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
           title="Shilah Al Jakarti Portfolio"
         >
           {/* Custom Crafted Dark Luxury Emblem Badge */}
-          <div className="relative flex h-[38px] w-[38px] min-[830px]:h-[44px] min-[830px]:w-[44px] shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-b from-[#222222] via-[#161616] to-[#0c0c0c] p-1.5 border border-white/20 shadow-[0_4px_14px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:scale-105 group-hover:border-white/40 active:scale-95">
+          <div className="relative flex h-[40px] w-[40px] min-[830px]:h-[46px] min-[830px]:w-[46px] shrink-0 items-center justify-center rounded-[11px] bg-gradient-to-b from-[#242424] via-[#161616] to-[#0c0c0c] p-1.5 border border-white/20 shadow-[0_4px_14px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.25)] transition-all duration-300 group-hover:scale-105 group-hover:border-white/40 active:scale-95">
             <div className="relative h-full w-full">
               <Image
                 src="/images/logo-sa-white.png"
                 alt="SA Monogram"
                 fill
                 priority
-                sizes="(min-width: 830px) 44px, 38px"
+                sizes="(min-width: 830px) 46px, 40px"
                 className="object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
               />
             </div>
@@ -99,14 +99,14 @@ export function Header() {
           {/* Name & Subtitle Brand Signature */}
           <div className="flex flex-col text-left">
             <span
-              className="text-[14px] min-[830px]:text-[15px] font-bold tracking-[0.04em] text-white transition-colors duration-300 group-hover:text-neutral-200 leading-tight"
+              className="text-[15px] min-[830px]:text-[16px] font-bold tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-neutral-200 leading-tight"
               style={{
                 fontFamily: '"proxima nova bold", "Helvetica Neue", Helvetica, Arial, sans-serif',
               }}
             >
               Shilah Al Jakarti
             </span>
-            <span className="hidden min-[480px]:inline-block font-mono text-[9px] tracking-[0.22em] uppercase text-neutral-400 leading-tight mt-0.5">
+            <span className="hidden min-[480px]:inline-block font-mono text-[9.5px] tracking-[0.24em] uppercase text-neutral-400 leading-tight mt-0.5">
               Portfolio
             </span>
           </div>
@@ -114,17 +114,17 @@ export function Header() {
 
         {/* 2. Middle/Right: Desktop Navigation Menu */}
         <nav className="hidden items-center min-[830px]:flex">
-          <ul className="flex items-center gap-1.5 rounded-full bg-white/[0.04] p-1.5 border border-white/[0.07] backdrop-blur-sm shadow-inner">
+          <ul className="flex items-center gap-1.5 rounded-full bg-white/[0.04] p-1.5 border border-white/[0.08] backdrop-blur-sm shadow-inner">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <li key={item.href} className="relative">
                   <Link
                     href={item.href}
-                    className={`relative block px-4 py-1.5 rounded-full text-[13px] min-[1024px]:text-[14px] font-medium tracking-[0.04em] transition-all duration-300 ease-out ${
+                    className={`relative block px-4.5 py-2 rounded-full text-[14px] min-[1024px]:text-[15px] font-medium tracking-[0.03em] transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none ${
                       isActive
-                        ? 'text-white font-semibold bg-white/[0.12] shadow-sm'
-                        : 'text-neutral-400 hover:text-white hover:bg-white/[0.06]'
+                        ? 'text-white font-semibold bg-white/[0.14] shadow-sm'
+                        : 'text-neutral-300 hover:text-white hover:bg-white/[0.07]'
                     }`}
                     style={{
                       fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -132,7 +132,7 @@ export function Header() {
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] w-[14px] rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-white shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
+                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2.5px] w-[16px] rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-white shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
                     )}
                   </Link>
                 </li>
@@ -141,19 +141,19 @@ export function Header() {
           </ul>
 
           {/* Vertical Divider */}
-          <div className="mx-4 h-5 w-[1px] bg-white/[0.12]" />
+          <div className="mx-4.5 h-5 w-[1px] bg-white/[0.14]" />
 
           {/* Social Icon Buttons (WhatsApp, Instagram, Super Sus) */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             {/* WhatsApp */}
             <a
               href="https://wa.me/6285117215840"
               target="_blank"
               rel="noopener noreferrer"
               title="Chat on WhatsApp (085117215840)"
-              className="group flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.09] text-neutral-300 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#25D366]/15 hover:border-[#25D366]/40 hover:text-[#25D366] hover:shadow-[0_0_12px_rgba(37,211,102,0.25)] active:scale-95"
+              className="group flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.1] text-neutral-200 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#25D366]/15 hover:border-[#25D366]/50 hover:text-[#25D366] hover:shadow-[0_0_14px_rgba(37,211,102,0.3)] active:scale-95 focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:outline-none"
             >
-              <WhatsAppIcon className="h-[17px] w-[17px] transition-transform duration-300 group-hover:scale-110" />
+              <WhatsAppIcon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
               <span className="sr-only">WhatsApp</span>
             </a>
 
@@ -163,9 +163,9 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram @shilah_al_jakarti2"
-              className="group flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.09] text-neutral-300 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#E1306C]/15 hover:border-[#E1306C]/40 hover:text-[#E1306C] hover:shadow-[0_0_12px_rgba(225,48,108,0.25)] active:scale-95"
+              className="group flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.1] text-neutral-200 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#E1306C]/15 hover:border-[#E1306C]/50 hover:text-[#E1306C] hover:shadow-[0_0_14px_rgba(225,48,108,0.3)] active:scale-95 focus-visible:ring-2 focus-visible:ring-[#E1306C] focus-visible:outline-none"
             >
-              <InstagramIcon className="h-[17px] w-[17px] transition-transform duration-300 group-hover:scale-110" />
+              <InstagramIcon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
               <span className="sr-only">Instagram</span>
             </a>
 
@@ -173,9 +173,9 @@ export function Header() {
             <Link
               href="/contact"
               title="Super Sus Gamer (ID: shill23)"
-              className="group flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.09] text-neutral-300 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#FF8C00]/15 hover:border-[#FF8C00]/40 hover:text-[#FF8C00] hover:shadow-[0_0_12px_rgba(255,140,0,0.25)] active:scale-95"
+              className="group flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white/[0.05] border border-white/[0.1] text-neutral-200 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-[#FF8C00]/15 hover:border-[#FF8C00]/50 hover:text-[#FF8C00] hover:shadow-[0_0_14px_rgba(255,140,0,0.3)] active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FF8C00] focus-visible:outline-none"
             >
-              <SuperSusIcon className="h-[17px] w-[17px] transition-transform duration-300 group-hover:scale-110" />
+              <SuperSusIcon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
               <span className="sr-only">Super Sus ID</span>
             </Link>
           </div>
@@ -187,7 +187,7 @@ export function Header() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={isMobileMenuOpen}
-          className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.1] text-white transition-all duration-300 hover:bg-white/[0.12] active:scale-95 min-[830px]:hidden cursor-pointer"
+          className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.07] border border-white/[0.12] text-white transition-all duration-300 hover:bg-white/[0.14] active:scale-95 min-[830px]:hidden cursor-pointer focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
         >
           <div className="flex h-3.5 w-4.5 flex-col justify-between">
             <span
@@ -211,7 +211,7 @@ export function Header() {
 
       {/* 4. Mobile Navigation Drawer Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[64px] z-[999] border-b border-white/[0.1] bg-[#0c0c0c]/95 px-6 py-6 backdrop-blur-2xl shadow-2xl min-[830px]:hidden animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="fixed inset-x-0 top-[64px] z-[999] border-b border-white/[0.1] bg-[#0c0c0c]/96 px-6 py-6 backdrop-blur-2xl shadow-2xl min-[830px]:hidden animate-in fade-in slide-in-from-top-4 duration-300">
           <nav className="flex flex-col gap-2">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
@@ -220,10 +220,10 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-[16px] font-medium transition-all duration-200 active:scale-98 ${
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-[16px] font-medium transition-all duration-200 active:scale-98 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none ${
                     isActive
-                      ? 'bg-white/[0.1] text-white font-semibold border border-white/[0.15]'
-                      : 'text-neutral-300 hover:bg-white/[0.05] hover:text-white'
+                      ? 'bg-white/[0.12] text-white font-semibold border border-white/[0.18]'
+                      : 'text-neutral-200 hover:bg-white/[0.06] hover:text-white'
                   }`}
                   style={{
                     fontFamily: '"proxima nova semibold", "Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -249,9 +249,9 @@ export function Header() {
                 href="https://wa.me/6285117215840"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-white transition-all hover:bg-[#25D366]/20 hover:border-[#25D366]/50 active:scale-95"
+                className="flex items-center gap-2 rounded-full bg-white/[0.07] border border-white/[0.12] px-4 py-2.5 text-[13.5px] font-medium text-white transition-all hover:bg-[#25D366]/20 hover:border-[#25D366]/50 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:outline-none"
               >
-                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
                 <span>WhatsApp</span>
               </a>
 
@@ -260,9 +260,9 @@ export function Header() {
                 href="https://www.instagram.com/shilah_al_jakarti2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-white transition-all hover:bg-[#E1306C]/20 hover:border-[#E1306C]/50 active:scale-95"
+                className="flex items-center gap-2 rounded-full bg-white/[0.07] border border-white/[0.12] px-4 py-2.5 text-[13.5px] font-medium text-white transition-all hover:bg-[#E1306C]/20 hover:border-[#E1306C]/50 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#E1306C] focus-visible:outline-none"
               >
-                <InstagramIcon className="h-4 w-4 text-[#E1306C]" />
+                <InstagramIcon className="h-4.5 w-4.5 text-[#E1306C]" />
                 <span>Instagram</span>
               </a>
 
@@ -270,9 +270,9 @@ export function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-white transition-all hover:bg-[#FF8C00]/20 hover:border-[#FF8C00]/50 active:scale-95"
+                className="flex items-center gap-2 rounded-full bg-white/[0.07] border border-white/[0.12] px-4 py-2.5 text-[13.5px] font-medium text-white transition-all hover:bg-[#FF8C00]/20 hover:border-[#FF8C00]/50 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FF8C00] focus-visible:outline-none"
               >
-                <SuperSusIcon className="h-4 w-4 text-[#FF8C00]" />
+                <SuperSusIcon className="h-4.5 w-4.5 text-[#FF8C00]" />
                 <span>Super Sus</span>
               </Link>
             </div>

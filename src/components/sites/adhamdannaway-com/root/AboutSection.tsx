@@ -31,11 +31,11 @@ export function AboutSection() {
           </h3>
         </div>
 
-        {/* About Bio Content: Smooth gradual paragraph reveals */}
-        <div className="mx-auto max-w-[760px] text-left">
+        {/* About Bio Content: Balanced max-width, comfortable line-height & font sizing */}
+        <div className="mx-auto max-w-[780px] text-left">
           <p
             data-reveal
-            className={`mb-8 text-[18px] leading-[1.7] text-[#333333] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
+            className={`mb-7 text-[18px] leading-[1.8] text-[#2c2c2c] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
             }`}
             style={{
@@ -57,12 +57,12 @@ export function AboutSection() {
 
           <p
             data-reveal
-            className={`mb-8 text-[18px] leading-[1.7] text-[#333333] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
+            className={`mb-7 text-[18px] leading-[1.8] text-[#2c2c2c] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
             }`}
             style={{
               fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
-              transitionDelay: '300ms',
+              transitionDelay: '280ms',
             }}
           >
             After Maghrib prayer, I usually spend my time exercising until the Isya prayer call. It’s one of the activities I enjoy because it helps me stay active while taking a break from my usual routine.
@@ -70,16 +70,58 @@ export function AboutSection() {
 
           <p
             data-reveal
-            className={`mb-0 text-[18px] leading-[1.7] text-[#333333] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
+            className={`mb-0 text-[18px] leading-[1.8] text-[#2c2c2c] min-[830px]:text-[20px] transition-all duration-700 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
             }`}
             style={{
               fontFamily: '"proxima nova light", "Helvetica Neue", Helvetica, Arial, sans-serif',
-              transitionDelay: '450ms',
+              transitionDelay: '400ms',
             }}
           >
             In my free time, I also enjoy playing games and relaxing. I’m interested in technology and learning new things, especially creating websites and coding. I’m still learning, but I’m always excited to improve my skills and try something new.
           </p>
+
+          {/* Meaningful Visual Pillar Cards: Supporting text content with zero clutter */}
+          <div
+            data-reveal
+            className={`mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3 transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '520ms' }}
+          >
+            {/* Pillar 1 */}
+            <div className="flex items-center gap-3.5 rounded-xl border border-neutral-200/90 bg-[#fafafa] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-neutral-300 hover:bg-white hover:shadow-sm">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-[22px]">
+                🏃‍♂️
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">Daily Habit</p>
+                <p className="text-[14px] font-semibold text-neutral-900 leading-snug">Post-Maghrib Workout</p>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="flex items-center gap-3.5 rounded-xl border border-neutral-200/90 bg-[#fafafa] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-neutral-300 hover:bg-white hover:shadow-sm">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[22px]">
+                🎮
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">Gaming</p>
+                <p className="text-[14px] font-semibold text-neutral-900 leading-snug">Super Sus (shill23)</p>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="flex items-center gap-3.5 rounded-xl border border-neutral-200/90 bg-[#fafafa] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-neutral-300 hover:bg-white hover:shadow-sm">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-[22px]">
+                ⚡
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">Learning</p>
+                <p className="text-[14px] font-semibold text-neutral-900 leading-snug">Web Dev with AI</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
